@@ -40,10 +40,14 @@ for body in [body1,body2]:
                 doc.save("result.docx")
                 exit(0)
             c = txt[txt_ptr]
-            txt_ptr += 1
+            c_width = 2 if unicodedata.east_asian_width(c) in "FWA" else 1
             if c == "\n":
+                txt_ptr += 1
                 break
-            now_width += 2 if unicodedata.east_asian_width(c) in "FWA" else 1
+            if c_width + now_width > ROW_WIDTH:
+                break
+            txt_ptr += 1
+            now_width += c_width
             injection += c
         row.cells[0].text = injection
 
