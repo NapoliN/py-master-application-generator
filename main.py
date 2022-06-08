@@ -36,6 +36,7 @@ for body in [body1,body2]:
         now_width = 0
         while now_width < ROW_WIDTH:
             if txt_ptr >= len(txt):
+                row.cells[0].text = injection
                 print("Successfully Done!")
                 doc.save("result.docx")
                 exit(0)
