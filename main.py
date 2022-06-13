@@ -20,9 +20,9 @@ not_write, name_and_choice, body1, body2 = tables[0], tables[1], tables[2], tabl
 my_text = open(your_file,encoding="UTF-8")
 
 # 名前と希望系を入力
-name = my_text.readline()
+name = my_text.readline().rstrip()
 name_and_choice.rows[0].cells[1].text = name
-choice = my_text.readline()
+choice = my_text.readline().rstrip()
 name_and_choice.rows[0].cells[3].text = choice
 
 # 本文を入力
